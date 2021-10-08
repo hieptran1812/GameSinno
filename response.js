@@ -82,7 +82,7 @@ const sendTutorial = (sender_psid) => {
     })
     .then(() => {
       return callSendAPI(sender_psid, {
-        text: "Mục tiêu là để thằng cu 🏃 này ăn phở🍜. Nếu syntax lỗi, bot sẽ cảnh báo cho bạn. Nếu code của bạn đâm vào tường hoặc không kết thúc tại vị trí bát phở, bot sẽ show hình ảnh đường đi hiện tại cho bạn. It is possible to pass through the target node and end up hitting a wall or landing on an empty node.\nLuật chơi:\n- Mỗi thao tác cách nhau bởi dấu phẩy.\n- Một lần di chuyển (u,l,r,d), hoặc một lần dùng vòng lặp loop(<số bước>-<hướng>) được tính như 1 thao tác.\n- Đoạn code không được đâm vào tường.\n- Đoạn code phải không được đi ra ngoài vùng chơi.",
+        text: "Mục tiêu là để thằng cu 🏃 này ăn phở🍜. Nếu syntax lỗi, bot sẽ cảnh báo cho bạn. Nếu code của bạn đâm vào tường hoặc không kết thúc tại vị trí bát phở, bot sẽ show hình ảnh đường đi hiện tại cho bạn.\n**Luật chơi**:\n- Mỗi thao tác cách nhau bởi dấu phẩy.\n- Một lần di chuyển (u,l,r,d), hoặc một lần dùng vòng lặp loop(<số bước>-<hướng>) được tính như 1 thao tác.\n- Đoạn code không được đâm vào tường.\n- Đoạn code phải không được đi ra ngoài vùng chơi.",
       });
     })
     .then(() => {
