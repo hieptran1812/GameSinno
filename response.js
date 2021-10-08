@@ -9,17 +9,17 @@ const responsePostback = {
       buttons: [
         {
           type: "postback",
-          title: "5x11 maze",
+          title: "Kích thước 5x11",
           payload: "easy",
         },
         {
           type: "postback",
-          title: "7x11 maze",
+          title: "Kích thước 7x11",
           payload: "medium",
         },
         {
           type: "postback",
-          title: "9x11 maze",
+          title: "Kích thước 9x11",
           payload: "hard",
         },
       ],
@@ -32,17 +32,17 @@ const responseQuickReply = {
   quick_replies: [
     {
       content_type: "text",
-      title: "Maze",
+      title: "Chơi",
       payload: "maze",
     },
     {
       content_type: "text",
-      title: "Quit",
+      title: "Thoát",
       payload: "quit",
     },
     {
       content_type: "text",
-      title: "Tutorial",
+      title: "Hướng dẫn",
       payload: "tutorial",
     },
   ],
@@ -82,7 +82,7 @@ const sendTutorial = (sender_psid) => {
     })
     .then(() => {
       return callSendAPI(sender_psid, {
-        text: "The goal is for the squirrel🏃 to reach the peanut🥜. If the code has syntax errors, the bot will notify you. If your code hits a wall, or does not end on the target node, a visual representation will be sent to you. It is possible to pass through the target node and end up hitting a wall or landing on an empty node. It is also possible to pass the target node, and backtrack to reach it again. This will be a valid solution.\n\nRules:\n- A single operation is separated by a comma.\n- A single direction (u,l,r,d), and single loop(<repeat>-<dir>) counts as a single operation.\n- The code must not hit any walls in order to succeed.\n- The code must not go out of bounds.",
+        text: "The goal is for the squirrel🏃 to reach the peanut🍜. If the code has syntax errors, the bot will notify you. If your code hits a wall, or does not end on the target node, a visual representation will be sent to you. It is possible to pass through the target node and end up hitting a wall or landing on an empty node. It is also possible to pass the target node, and backtrack to reach it again. This will be a valid solution.\n\nRules:\n- A single operation is separated by a comma.\n- A single direction (u,l,r,d), and single loop(<repeat>-<dir>) counts as a single operation.\n- The code must not hit any walls in order to succeed.\n- The code must not go out of bounds.",
       });
     })
     .then(() => {
@@ -124,7 +124,7 @@ const handleNoValidMaze = (sender_psid) => {
 // when the user quits
 const handleQuit = (sender_psid, received_message, userInfo) => {
   callSendAPI(sender_psid, {
-    text: "Thank you for trying out MazeBot, come back again soon!",
+    text: "Cảm ơn bạn đã thử trò chơi! Hẹn gặp lại sau nhá!",
   });
 };
 
@@ -191,16 +191,16 @@ handleSolutionResponse = (
   const maze = userInfo.maze;
 
   if (solutionResponse.success !== undefined) {
-    explanationMsg = "Your solution was correct!";
+    explanationMsg = "Cách giải đúng! Siêu đó";
     pathTaken = solutionResponse.success;
   } else if (solutionResponse.failure !== undefined) {
-    explanationMsg = "Your solution hit a wall or went out of bounds.";
+    explanationMsg = "Đường đi của bạn bị đập vào tường hoặc tràn ra ngoài rồi :))";
     pathTaken = solutionResponse.failure;
   } else if (solutionResponse.incomplete !== undefined) {
-    explanationMsg = "Your solution did not reach the end node.";
+    explanationMsg = "Đường đi của bạn chưa đến được điểm cuối!";
     pathTaken = solutionResponse.incomplete;
   } else {
-    explanationMsg = "Your solution had an error!";
+    explanationMsg = "Lời giải của bạn bị lỗi gì rồi :<";
     pathTaken = solutionResponse.failure;
   }
 
