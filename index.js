@@ -15,13 +15,13 @@ const {
     handleMazeSelection,
     handleQuit,
     handleSolutionResponse,
-  } = require("./botResponse.js"),
+  } = require("./response.js"),
   {
     generateMaze,
     isSolutionValid,
     destructureSolution,
     checkSolution,
-  } = require("./mazeAlgorithms.js"),
+  } = require("./algorithm.js"),
   express = require("express"),
   bodyParser = require("body-parser"),
   app = express().use(bodyParser.json());
