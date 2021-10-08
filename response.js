@@ -64,13 +64,13 @@ const sendInitialGreetings = (sender_psid) => {
 
 const sendTutorial = (sender_psid) => {
   const turnLeftRightMsg = {
-    text: `Moving Left and Right Maze Example:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🐿️⬜⬜\n   ⬛⬛⬛⬛⬛\nMoving left you type in the messenger "l", moving right you type "r"\nSo 'l,l' would look like:\n   ⬛⬛⬛⬛⬛\n   ❌🟩🐿️⬜⬜\n   ⬛⬛⬛⬛⬛\nAlternatively, "r,r" would look like:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🐿️🟩❌\n   ⬛⬛⬛⬛⬛\n`,
+    text: `Moving Left and Right Maze Example:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nMoving left you type in the messenger "l", moving right you type "r"\nSo 'l,l' would look like:\n   ⬛⬛⬛⬛⬛\n   ❌🟩🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nAlternatively, "r,r" would look like:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃🟩❌\n   ⬛⬛⬛⬛⬛\n`,
   };
   const moveUpDownMsg = {
-    text: `Moving Up and Down Maze Example:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🐿️⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nMoving up you type in the messenger "u", moving down you type "d"\nSo 'u,u' would look like:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🐿️⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nAlternatively, "d,d" would look like:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🐿️⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛❌⬛⬛\n`,
+    text: `Moving Up and Down Maze Example:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nMoving up you type in the messenger "u", moving down you type "d"\nSo 'u,u' would look like:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nAlternatively, "d,d" would look like:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛❌⬛⬛\n`,
   };
   const loopingMsg = {
-    text: `Looping Maze Example:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🐿️⬛⬛\nMoving with a loop you type in the messenger "loop(<number>-<direction>)"\nSo 'loop(3-u)' would look like:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🐿️⬛⬛\nAlternatively, "loop(4-u)" would look like:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🐿️⬛⬛`,
+    text: `Looping Maze Example:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\nMoving with a loop you type in the messenger "loop(<number>-<direction>)"\nSo 'loop(3-u)' would look like:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\nAlternatively, "loop(4-u)" would look like:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛`,
   };
 
   callSendAPI(sender_psid, turnLeftRightMsg)
@@ -82,7 +82,7 @@ const sendTutorial = (sender_psid) => {
     })
     .then(() => {
       return callSendAPI(sender_psid, {
-        text: "The goal is for the squirrel🐿️ to reach the peanut🥜. If the code has syntax errors, the bot will notify you. If your code hits a wall, or does not end on the target node, a visual representation will be sent to you. It is possible to pass through the target node and end up hitting a wall or landing on an empty node. It is also possible to pass the target node, and backtrack to reach it again. This will be a valid solution.\n\nRules:\n- A single operation is separated by a comma.\n- A single direction (u,l,r,d), and single loop(<repeat>-<dir>) counts as a single operation.\n- The code must not hit any walls in order to succeed.\n- The code must not go out of bounds.",
+        text: "The goal is for the squirrel🏃 to reach the peanut🥜. If the code has syntax errors, the bot will notify you. If your code hits a wall, or does not end on the target node, a visual representation will be sent to you. It is possible to pass through the target node and end up hitting a wall or landing on an empty node. It is also possible to pass the target node, and backtrack to reach it again. This will be a valid solution.\n\nRules:\n- A single operation is separated by a comma.\n- A single direction (u,l,r,d), and single loop(<repeat>-<dir>) counts as a single operation.\n- The code must not hit any walls in order to succeed.\n- The code must not go out of bounds.",
       });
     })
     .then(() => {
@@ -133,8 +133,8 @@ const handlePostback = (sender_psid, received_postback, userInfo) => {
   let responseMsg;
   const wallNode = "⬛";
   const openNode = "⬜";
-  const start = "🐿️";
-  const end = "🥜";
+  const start = "🏃";
+  const end = "🍜";
   const maze = userInfo.maze;
 
   let mazeString = "";
@@ -186,8 +186,8 @@ handleSolutionResponse = (
   const openNode = "⬜";
   const path = "🟩";
   const pathEnd = "❌";
-  const start = "🐿️";
-  const end = "🥜";
+  const start = "🏃";
+  const end = "🍜";
   const maze = userInfo.maze;
 
   if (solutionResponse.success !== undefined) {
