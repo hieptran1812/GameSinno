@@ -5,7 +5,7 @@ const responsePostback = {
     type: "template",
     payload: {
       template_type: "button",
-      text: "Maze Selection:",
+      text: "Lựa chọn mê cung:",
       buttons: [
         {
           type: "postback",
@@ -50,7 +50,7 @@ const responseQuickReply = {
 
 const sendInitialGreetings = (sender_psid) => {
   const responseMsg = {
-    text: `Welcome to MazeBot - a small maze coding challenge bot. MazeBot generates a random maze based on the dimensions you select and it is your job to solve this maze, by coding a solution into the messenger. See "tutorial" for more information to get started. For windows that can not accomodate wide views, only select 5x11 maze. You may send 'maze' for the maze selection window, or 'quit' to end your current session.`,
+    text: `Chào mừng đến với game của team Phở Bò - một bot thử thách mã hóa mê cung nhỏ. Chú bot thông minh của bọn tớ sẽ tạo ra một mê cung ngẫu nhiên dựa trên các kích thước bạn chọn và nhiệm vụ là tìm đường đi tới bát phở bằng cách gửi cho bọn mình một đoạn code. Chọn "hướng dẫn" để biết thêm thông tin nhé :>`,
   };
 
   callSendAPI(sender_psid, responseMsg)
@@ -64,13 +64,13 @@ const sendInitialGreetings = (sender_psid) => {
 
 const sendTutorial = (sender_psid) => {
   const turnLeftRightMsg = {
-    text: `Moving Left and Right Maze Example:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nMoving left you type in the messenger "l", moving right you type "r"\nSo 'l,l' would look like:\n   ⬛⬛⬛⬛⬛\n   ❌🟩🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nAlternatively, "r,r" would look like:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃🟩❌\n   ⬛⬛⬛⬛⬛\n`,
+    text: `Ví dụ di chuyển sang trái hoặc phải:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nĐể di chuyển sang trái, nhắn "l" trên thanh chat, sang phải nhắn "r"\nKhi đó 'l,l' có kết quả như sau:\n   ⬛⬛⬛⬛⬛\n   ❌🟩🏃⬜⬜\n   ⬛⬛⬛⬛⬛\Hoặc khi bạn nhập code "r,r" kết quả sẽ như sau:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃🟩❌\n   ⬛⬛⬛⬛⬛\n`,
   };
   const moveUpDownMsg = {
-    text: `Moving Up and Down Maze Example:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nMoving up you type in the messenger "u", moving down you type "d"\nSo 'u,u' would look like:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nAlternatively, "d,d" would look like:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛❌⬛⬛\n`,
+    text: `Ví dụ di chuyển lên hoặc xuống:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nĐể di chuyển lên trên, nhắn "u", di chuyển xuống nhắn "d"\nKhi đó 'u,u' có kết quả như sau:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nHoặc khi bạn nhập code "d,d", kết quả sẽ như sau:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛❌⬛⬛\n`,
   };
   const loopingMsg = {
-    text: `Looping Maze Example:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\nMoving with a loop you type in the messenger "loop(<number>-<direction>)"\nSo 'loop(3-u)' would look like:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\nAlternatively, "loop(4-u)" would look like:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛`,
+    text: `Sử dụng vòng lặp:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\nĐể sử dụng vòng lặp, hãy nhắn như sau "loop(<số bước>-<hướng di chuyển>)"\nVí dụ 'loop(3-u)' sẽ như sau:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\nHoặc "loop(4-u)" kết quả như sau:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛`,
   };
 
   callSendAPI(sender_psid, turnLeftRightMsg)
@@ -82,7 +82,7 @@ const sendTutorial = (sender_psid) => {
     })
     .then(() => {
       return callSendAPI(sender_psid, {
-        text: "The goal is for the squirrel🏃 to reach the peanut🍜. If the code has syntax errors, the bot will notify you. If your code hits a wall, or does not end on the target node, a visual representation will be sent to you. It is possible to pass through the target node and end up hitting a wall or landing on an empty node. It is also possible to pass the target node, and backtrack to reach it again. This will be a valid solution.\n\nRules:\n- A single operation is separated by a comma.\n- A single direction (u,l,r,d), and single loop(<repeat>-<dir>) counts as a single operation.\n- The code must not hit any walls in order to succeed.\n- The code must not go out of bounds.",
+        text: "Mục tiêu là để thằng cu 🏃 này ăn phở🍜. Nếu syntax lỗi, bot sẽ cảnh báo cho bạn. Nếu code của bạn đâm vào tường hoặc không kết thúc tại vị trí bát phở, bot sẽ show hình ảnh đường đi hiện tại cho bạn. It is possible to pass through the target node and end up hitting a wall or landing on an empty node.\n\Luật chơi:\n- Mỗi thao tác cách nhau bởi dấu phẩy.\n- Một lần di chuyển (u,l,r,d), hoặc một lần dùng vòng lặp loop(<số bước>-<hướng>) được tính như 1 thao tác.\n- Đoạn code không được đâm vào tường.\n- Đoạn code phải không được đi ra ngoài vùng chơi.",
       });
     })
     .then(() => {
@@ -93,10 +93,9 @@ const sendTutorial = (sender_psid) => {
     });
 };
 
-// Handles messages events
 const handleNotAValidSolution = (sender_psid, received_message, userInfo) => {
   callSendAPI(sender_psid, {
-    text: `Your response is not a valid code. Make sure you have comma seperated operations, and check for invalid operations in your syntax or general typos, and try again.`,
+    text: `Code của bạn không hợp lệ. Hãy chắc chắn rằng bạn dùng dấu phẩy để ngăn cách các thao tác, và kiểm tra lại xem các thao tác đúng syntax hay chưa nhé :3`,
   })
     .then(() => {
       return callSendAPI(sender_psid, { text: received_message.text });
@@ -111,7 +110,7 @@ const handleNotAValidSolution = (sender_psid, received_message, userInfo) => {
 
 const handleNoValidMaze = (sender_psid) => {
   callSendAPI(sender_psid, {
-    text: `You do not have a maze to solve yet. To generate a maze, send "maze" or scroll up and select a maze from the options given.`,
+    text: `Bạn chưa chơi ván nào cả :<. Để làm trùm game này, hãy chọn "chơi" và pick một kích thước mê cung từ các tùy chọn đã cho.`,
   })
     .then(() => {
       return callSendAPI(sender_psid, responseQuickReply);
@@ -162,7 +161,7 @@ const handlePostback = (sender_psid, received_postback, userInfo) => {
 
   // Sends the response message
   callSendAPI(sender_psid, {
-    text: `This is your current maze. You may send "quit" at any time to end your current maze session. Alternatively, you may select a new maze by sending "maze" or scroll up to select a new maze.`,
+    text: `Đây là mê cung hiện tại cho bạn. Bạn có thể chọn "thoát" bất cứ lúc nào để ngừng chơi. Ngoài ra, bạn có thể chọn một mê cung mới bằng cách chọn nút "chơi" `,
   })
     .then(() => {
       return callSendAPI(sender_psid, responseMsg);
@@ -200,7 +199,7 @@ handleSolutionResponse = (
     explanationMsg = "Đường đi của bạn chưa đến được điểm cuối!";
     pathTaken = solutionResponse.incomplete;
   } else {
-    explanationMsg = "Lời giải của bạn bị lỗi gì rồi :<";
+    explanationMsg = "Code của bạn bị lỗi gì rồi :<";
     pathTaken = solutionResponse.failure;
   }
 
@@ -244,7 +243,7 @@ handleSolutionResponse = (
     .then(() => {
       if (solutionResponse.success !== undefined)
         return callSendAPI(sender_psid, {
-          text: `Try another another maze? You can also optimize your solution by using loops.`,
+          text: `Thử một mê cung khác khum? Bạn có thể tối ưu đừng đi của mình bằng cách sử dụng loop`,
         });
       if (solutionResponse.failure !== undefined || solutionResponse.incomplete)
         return callSendAPI(sender_psid, { text: received_message.text });
