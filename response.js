@@ -64,7 +64,7 @@ const sendInitialGreetings = (sender_psid) => {
 
 const sendTutorial = (sender_psid) => {
   const turnLeftRightMsg = {
-    text: `Ví dụ di chuyển sang trái hoặc phải:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nĐể di chuyển sang trái, nhắn "l" trên thanh chat, sang phải nhắn "r"\nKhi đó 'l,l' có kết quả như sau:\n   ⬛⬛⬛⬛⬛\n   ❌🟩🏃⬜⬜\n   ⬛⬛⬛⬛⬛\Hoặc khi bạn nhập code "r,r" kết quả sẽ như sau:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃🟩❌\n   ⬛⬛⬛⬛⬛\n`,
+    text: `Ví dụ di chuyển sang trái hoặc phải:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nĐể di chuyển sang trái, nhắn "l" trên thanh chat, sang phải nhắn "r"\nKhi đó 'l,l' có kết quả như sau:\n   ⬛⬛⬛⬛⬛\n   ❌🟩🏃⬜⬜\n   ⬛⬛⬛⬛⬛\nHoặc khi bạn nhập code "r,r" kết quả sẽ như sau:\n   ⬛⬛⬛⬛⬛\n   ⬜⬜🏃🟩❌\n   ⬛⬛⬛⬛⬛\n`,
   };
   const moveUpDownMsg = {
     text: `Ví dụ di chuyển lên hoặc xuống:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nĐể di chuyển lên trên, nhắn "u", di chuyển xuống nhắn "d"\nKhi đó 'u,u' có kết quả như sau:\n   ⬛⬛❌⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\nHoặc khi bạn nhập code "d,d", kết quả sẽ như sau:\n   ⬛⬛⬜⬛⬛\n   ⬛⬛⬜⬛⬛\n   ⬛⬛🏃⬛⬛\n   ⬛⬛🟩⬛⬛\n   ⬛⬛❌⬛⬛\n`,
