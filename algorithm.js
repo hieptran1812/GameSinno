@@ -127,8 +127,6 @@ const destructureSolution = (solution) => {
 };
 
 const isSolutionValid = (maze, solution) => {
-  // returns false if solution is not "code" or maze is not a maze
-  // returns true if maze and solution are valid
   if (!maze.length || !solution.length) return false;
 
   let solutionLowerCase = solution.toLowerCase();

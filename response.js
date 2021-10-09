@@ -120,14 +120,12 @@ const handleNoValidMaze = (sender_psid) => {
     });
 };
 
-// when the user quits
 const handleQuit = (sender_psid, received_message, userInfo) => {
   callSendAPI(sender_psid, {
     text: "Cảm ơn bạn đã thử trò chơi! Hẹn gặp lại sau nhá!",
   });
 };
 
-// Handles messaging_postbacks events
 const handlePostback = (sender_psid, received_postback, userInfo) => {
   let responseMsg;
   const wallNode = "⬛";
@@ -159,7 +157,6 @@ const handlePostback = (sender_psid, received_postback, userInfo) => {
     text: mazeString,
   };
 
-  // Sends the response message
   callSendAPI(sender_psid, {
     text: `Đây là mê cung hiện tại cho bạn. Bạn có thể chọn "thoát" bất cứ lúc nào để ngừng chơi. Ngoài ra, bạn có thể chọn một mê cung mới bằng cách chọn nút "chơi" `,
   })
@@ -261,7 +258,6 @@ handleMazeSelection = (sender_psid, received_postback, userInfo) => {
   );
 };
 
-// Sends response messages via the Send API
 const callSendAPI = (sender_psid, response) => {
   let request_body = {
     recipient: {
